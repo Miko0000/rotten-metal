@@ -1,0 +1,15 @@
+mv frame_00001.png bubble.png
+mv frame_00002.png icon-outline.png
+mv frame_00003.png icon.png
+mv frame_00004.png magnifying-glass.png
+mv frame_00005.png view-boxes.png
+mv frame_00006.png view-lists.png
+mv frame_00007.png letter.png
+mv frame_00008.png cyber_psychosis.png
+mv frame_00009.png bio_psychosis.png
+mv frame_00010.png plus.png
+mv frame_00011.png minus.png
+mv frame_00012.png cross.png
+mv frame_00013.png tick.png
+mv frame_00014.png edit.png
+mv frame_00015.png detachment.png

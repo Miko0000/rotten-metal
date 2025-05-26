@@ -1,0 +1,306 @@
+body {
+	margin: 0px;
+	padding: 0px;
+
+	font-family: Oxanium;
+	font-family: Orbitron;
+	font-family: Iceland;
+	font-size: 1em;
+}
+
+.conic-pbar {
+	--color: var(--p5);
+	--background: var(--p2);
+	--inner-background: var(--p6);
+}
+
+@keyframes page {
+	0% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0%);
+		opacity: 1;
+	}
+}
+
+@keyframes page-close {
+	0% {
+		transform: translateX(0%);
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+}
+
+.page {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	padding-top: 6em;
+
+	width: 100%;
+	height: 100%;
+
+	overflow-y: scroll;
+
+	z-index: 2;
+	background-image: var(--b2);
+	animation: page 0.5s forwards;
+}
+
+.page.close {
+	animation: page-close 0.5s forwards;
+}
+
+.top {
+	z-index: 99 !important;
+}
+
+.search {
+
+}
+
+.search > button {
+	margin-left: 1em;
+
+	--icon: url(shared/res/icon.png);
+}
+
+.search .id {
+	text-align: center;
+	border: 1px solid green;
+	border-color: lightGreen var(--p5) var(--p5) lightGreen;
+	margin: 1em;
+	font-size: 1.3em;
+	padding: 0.2em;
+	border-radius: 4px;
+	background-image: var(--b2);
+	color: white;
+}
+
+.search .attributes {
+	/*border: 1px solid green;*/
+	border-radius: 6px;
+	margin: 1em;
+}
+
+.search .attributes .attribute {
+	display: inline-block;
+	margin: 0.2em;
+	border: 1px solid var(--p6);
+	border-radius: 6px;
+	background-image: var(--b2);
+}
+
+.search .paragraph .text {
+	white-space: pre-wrap;
+	margin: 1em;
+}
+
+.search .paragraph textarea.edit {
+	width: 99%;
+	background-image: var(--b2);
+	margin: 0.5%;
+	color: inherit;
+}
+
+.search .close, .search .finish {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.search button {
+	margin-top: 0.3em;
+}
+
+.search .close {
+	display: none;
+}
+
+.search.preview .creation {
+	display: none;
+}
+
+.search.preview .close {
+	display: inline-block;
+}
+
+.search.preview .creation.preview {
+	display: block;
+}
+
+.search .end-panel {
+	margin: 1em;
+}
+
+/*.page.search > button.preview {
+	display: inline-block;
+	font-size: 2em;
+	position: fixed !important;
+	left: 100%;
+	top: 3em;
+	white-space: nowrap;
+	transform: translateX(-100%);
+	z-index: 9;
+}*/
+
+.attribute > * {
+	display: inline-block;
+	padding: 0.25em;
+}
+
+.attribute > .key {
+	font-weight: bold;
+}
+
+.attribute > .value {
+	border-left: 1px solid var(--p5);
+}
+
+.status > * {
+	position: relative;
+	display: inline-block;
+	margin: 1em;
+	width: 5em;
+	height: 5em;
+	--progress: 0deg;
+	--inner-width: 60%;
+	--inner-height: 60%;
+}
+
+.status > * > .inner {
+	/*background-color: var(--transparent);*/
+	background-color: unset;
+	border: 1px solid blue;
+
+	--inner-background-image: linear-gradient(to top left,
+		#CECECE,
+		#343434 30%
+	);
+}
+
+.status > .bio_psychosis {
+	--background: darkGreen;
+	--color: lightGreen;
+}
+
+.status > .cyber_psychosis {
+	--background: darkBlue;
+	--color: lightBlue;
+}
+
+.status > .detachment {
+	--background: purple;
+	--color: var(--p5);
+}
+
+.status > .cyber_psychosis > .inner {
+	background-image: url(shared/res/cyber_psychosis.png),
+		var(--inner-background-image)
+	;
+
+	border-color: lightBlue var(--p5) var(--p5) lightBlue;
+}
+
+.status > .bio_psychosis > .inner {
+	background-image: url(shared/res/bio_psychosis.png),
+		var(--inner-background-image)
+	;
+
+	border-color: lightGreen var(--p5) var(--p5) lightGreen;
+}
+
+.status > .detachment > .inner {
+	background-image: url(shared/res/detachment.png),
+		var(--inner-background-image)
+	;
+
+	border-color: purple var(--p5) var(--p5) purple;
+}
+
+.abilities {
+	margin: 1em;
+}
+
+.abilities > * {
+	position: relative;
+	margin-bottom: 1.5em;
+}
+
+.abilities > * > * {
+	display: inline-block;
+}
+
+.abilities > * > .name {
+	margin-left: 2.4em;
+}
+
+.abilities > * > .value {
+	font-size: 1.2em;
+	color: lightGreen;
+}
+
+.abilities > * > .conic-pbar {
+	position: absolute;
+	width: 2em;
+	height: 2em;
+	transform: translateY(-50%);
+	top: 50%;
+
+	--color: lightGreen;
+	--background: green;
+	--inner-width: 70%;
+	--inner-height: 70%;
+}
+
+.creation {
+
+}
+
+
+.icon.minus {
+	--icon: url(shared/res/minus.png);
+}
+
+.icon.plus {
+	--icon: url(shared/res/plus.png);
+}
+
+.icon.cross {
+	--icon: url(shared/res/cross.png);
+}
+
+.icon.tick {
+	--icon: url(shared/res/tick.png);
+}
+
+.icon.edit {
+	--icon: url(shared/res/edit.png);
+}
+
+
+.icon.magnifying-glass {
+	--icon: url(shared/res/magnifying-glass.png);
+}
+
+.app.scan .icon {
+	background-image: url(shared/res/magnifying-glass.png);
+}
+
+.app.clipboard-scan .icon {
+	background-image: url(shared/res/magnifying-glass.png);
+	filter: hue-rotate(45deg);
+}
+
+.app.create .icon {
+	background-image: url("shared/res/edit.png");
+}

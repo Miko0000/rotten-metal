@@ -1,0 +1,24 @@
+.conic-pbars > *, .conic-pbar {
+	position: relative;
+
+	border-radius: var(--border-radius, 50%);
+	background-image:
+		conic-gradient(
+			var(--color, white) var(--progress, 180deg),
+			var(--background, black) var(--progress, 180deg)
+		);
+	;
+}
+
+.conic-pbars > * .inner, .conic-pbar .inner {
+	position: absolute;
+	background-color: var(--inner-background, white);
+	width: var(--inner-width, 80%);
+	height: var(--inner-height, 80%);
+
+	left: var(--inner-left, 50%);
+	top: var(--inner-top, 50%);
+
+	border-radius: var(--border-radius, 50%);
+	transform: translate(-50%, -50%);
+}

@@ -1,0 +1,26 @@
+.twopan {
+	box-sizing: border-box;
+
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+}
+
+.twopan.twopan-dual {
+	width: 50%;
+}
+
+.twopan.twopan-minor {
+	width: 30%;
+}
+
+.twopan.twopan-major {
+	width: 70%;
+}
+
+.twopan.twopan-sticky {
+	position: sticky;
+
+	left: 0px;
+	top: 0px;
+}

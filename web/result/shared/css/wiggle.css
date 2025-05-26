@@ -1,0 +1,26 @@
+@keyframes wiggle-vertical {
+	0% {
+		transform: translateY(var(--wiggle-vertical-start, 0));
+	}
+	100% {
+		transform: translateY(var(--wiggle-vertical-distance, 16px));
+	}
+}*/
+/*
+@keyframes wiggle-vertical {
+	0% {
+		transform: translateY(0);
+	}
+
+	100% {
+		transform: translateY(16px);
+	}
+}*/
+
+@keyframes wiggle-horizontal {
+
+}
+
+@keyframes wiggle-spin {
+
+}

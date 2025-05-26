@@ -1,0 +1,71 @@
+.trail-border {
+	touch-action: none;
+	touch-events: none;
+	pointer-events: none;
+}
+
+@keyframes border-player {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.border-player {
+	position: absolute;
+	width: 33.4%;
+	height: 33.4%;
+
+	opacity: 0;
+	animation: border-player 0.5s forwards;
+}
+
+.border-player.i0 {
+	left: 0px;
+	top: 0px;
+}
+
+.border-player.i1 {
+	left: 50%;
+	top: 0px;
+	transform: translateX(-50%);
+}
+
+.border-player.i2 {
+	left: 100%;
+	top: 0px;
+	transform: translateX(-100%);
+}
+
+.border-player.i3 {
+	left: 100%;
+	top: 50%;
+	transform: translate(-100%, -50%);
+}
+
+.border-player.i4 {
+	left: 100%;
+	top: 100%;
+	transform: translate(-100%, -100%);
+}
+
+.border-player.i5 {
+	left: 50%;
+	top: 100%;
+	transform: translate(-50%, -100%);
+}
+
+.border-player.i6 {
+	left: 0px;
+	top: 100%;
+	transform: translateY(-100%);
+}
+
+.border-player.i7 {
+	left: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+}

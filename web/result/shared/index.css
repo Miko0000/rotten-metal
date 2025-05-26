@@ -1,0 +1,27 @@
+.hidden {
+	display: none !important;
+}
+
+.load > * {
+	opacity: 1;
+}
+
+@keyframes body-load {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.load > .content, .load nav {
+	opacity: 0;
+
+	animation-name: body-load;
+	animation-duration: 0.5s;
+	animation-delay: 0.5s;
+	animation-fill-mode: forwards;
+}
+

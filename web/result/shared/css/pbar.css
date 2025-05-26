@@ -1,0 +1,47 @@
+.pbar {
+	--bg-color: rgb(100, 255, 100);
+	--border-color: var(--bg-color);
+	--font-size: inherit;
+	--font-weight: bold;
+}
+
+.pbar {
+	position: relative;
+
+	width: 128px;
+	height: 32px;
+
+	border: 2px solid var(--border-color);
+	white-space: nowrap;
+	font-weight: var(--font-weight);
+}
+
+.pbar .fill {
+	position: absolute;
+
+	left: 0px;
+	top: 0px;
+
+	background-color: var(--bg-color);
+	height: 100%;
+	z-index: 1;
+
+	overflow-x: hidden;
+}
+
+.pbar * {
+	position: absolute;
+
+	left: 0px;
+	top: 0px;
+}
+
+.pbar .text {
+
+}
+
+.pbar .text.over {
+	z-index: 2;
+
+	filter: invert(100%);
+}
