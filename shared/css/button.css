@@ -1,0 +1,51 @@
+:root {
+	--button-border-size: 2px;
+	--button-border-style: solid;
+	--button-border-color: rgb(16, 16, 16);
+	--button-border-height: 2;
+
+	--button-bg-color: rgb(32, 32, 32);
+	--button-color: white;
+	--button-font-family: unset;
+	--button-font-size: unset;
+}
+
+input, button, .button {
+	background-color: var(--button-bg-color);
+	border:
+		var(--button-border-size)
+		var(--button-border-style)
+		var(--button-border-color)
+	;
+	border-top-width: calc(
+		var(--button-border-size) * (var(--button-border-height) * 0.5)
+	);
+	border-bottom-width: calc(
+		var(--button-border-size) * (var(--button-border-height) * 1.5)
+	);
+	color: var(--button-color);
+	font-family: var(--button-font-family);
+	font-size: var(--button-font-size);
+	outline: none;
+
+	transition: background-color 0.5s, border-color 0.5s;
+}
+
+input:hover, button:hover, .button.hover, .button:hover {
+	border-top-width: calc(
+		var(--button-border-size) * (var(--button-border-height) * 1)
+	);
+	border-bottom-width: calc(
+		var(--button-border-size) * (var(--button-border-height) * 1)
+	);
+}
+
+input:active, button:active, .button.active, .button:active {
+	border-top-width: calc(
+		var(--button-border-size) * (var(--button-border-height) * 1.5)
+	);
+	border-bottom-width: calc(
+		var(--button-border-size) * (var(--button-border-height) * 0.5)
+	);
+	transition: background-color 0.1s, border-color 0.01s;
+}

@@ -1,0 +1,41 @@
+:root {
+	--icon1: url("shared/res/uxwing-book-icon.svg");
+	--icon2: url("shared/res/uxwing-discord-round-black-icon.svg");
+	--icon3: url("shared/res/uxwing-github-icon.svg");
+	--icon4: url("shared/res/uxwing-install-setup-product-icon.svg");
+	--icon5: url("shared/res/uxwing-arrow-round-left-icon.png");
+	--icon6: url("shared/res/freepik-id-card.png");
+}
+
+.icon {
+	width: 4rem;
+	height: 4rem;
+
+	background-size: 100% 100%;
+	background-position: center;
+}
+
+.icon.discord-server {
+	background-image: var(--icon2);
+}
+
+.icon.github {
+	background-image: var(--icon3);
+}
+
+.icon.library {
+	background-image: var(--icon1);
+}
+
+.icon.projects {
+	background-image: var(--icon4);
+}
+
+.icon.back {
+	background-image: var(--icon5);
+}
+
+.icon.about {
+	background-image: var(--icon6);
+}
+

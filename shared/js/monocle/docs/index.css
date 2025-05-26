@@ -1,0 +1,128 @@
+html {
+	font-size: 0.8em;
+}
+
+* {
+	box-sizing: border-box;
+
+	--p0: black;
+	--p1: green;
+}
+
+.page {
+	border: 2px solid var(--p1);
+	padding: 0.2rem;
+}
+
+.struct {
+	border: 2px solid var(--p1);
+	padding: 1rem;
+	margin-bottom: 2em;
+}
+
+.struct > .name {
+	font-size: 1.8rem;
+}
+
+.struct > .name::before {
+	content: 'class ';
+	color: var(--p1);
+}
+
+.struct > .extends {
+	font-size: 1.2rem;
+	text-indent: 1rem;
+	padding-bottom: 1rem;
+}
+
+.struct > .extends::before {
+	font-size: 1.2rem;
+	content: 'extends ';
+	color: var(--p1);
+}
+
+.struct .prop {
+	color: green;
+	font-size: 0px;
+	display: table-row;
+}
+
+.struct .prop > * {
+	font-size: 1.2rem;
+}
+
+.struct .prop::after {
+	content: ',\A';
+	color: var(--p0);
+	font-size: 1.2rem;
+
+	white-space: pre;
+}
+
+.struct .prop > .name {
+	text-indent: 1rem;
+	display: inline-block;
+	color: var(--p0);
+}
+
+.struct .prop > .name::before {
+	content: '.';
+	font-size: 1.2rem;
+}
+
+.struct .prop > .type {
+	display: inline;
+}
+
+.struct .prop > .type::before {
+	content: ' ';
+}
+
+.struct .prop.method > .name::after {
+	content: '(';
+}
+
+.struct .prop.method::after {
+	font-size: 1.2rem;
+	content: '),';
+	color: var(--p0);
+}
+
+.struct .prop.method .arg {
+	display: inline-block;
+	color: var(--p0);
+	font-size: 0px;
+}
+
+.struct .prop.method .arg::after {
+	content: ',';
+	margin-right: 0.4rem;
+	font-size: 1.2rem;
+}
+
+.struct .prop.method .arg:last-child::after {
+	content: '';
+	margin-right: 0rem;
+}
+
+.struct .prop.method .arg > * {
+	display: inline;
+	font-size: 1.2rem;
+}
+
+.struct .prop.method .arg > .type {
+	color: var(--p1);
+}
+
+.struct .prop.method .arg > .type::after {
+	content: ' ';
+}
+
+.struct .prop.method.multiline > .arg {
+	display: table-row;
+	text-indent: 2rem;
+}
+
+.struct .prop.method.multiline::after {
+	padding-left: 1rem;
+}
