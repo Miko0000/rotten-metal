@@ -2,7 +2,10 @@ async function serializer(el){
 	const obj = {};
 
 	function convert(el){
-		return new KlawsInstance(null, el, null);
+		const inst = new KlawsInstance(null, null, null);
+		inst._element = el;
+
+		return inst;
 	}
 
 	const id = (el.querySelector(".id")).textContent;
@@ -16,6 +19,10 @@ async function serializer(el){
 		.map(convert);
 	const statuses = Array
 		.from(el.querySelectorAll(".status > *"))
+		.filter(el => !el.classList.contains("template"))
+		.map(convert);
+	const abilities = Array
+		.from(el.querySelectorAll(".abilities > *"))
 		.filter(el => !el.classList.contains("template"))
 		.map(convert);
 
@@ -41,6 +48,15 @@ async function serializer(el){
 			s.classList.toString().split(' ')[0],
 			(parseInt(s.style.getPropertyValue("--progress"))/360)
 				* 100
+		];
+	})));
+
+	Object.assign(obj, Object.fromEntries(abilities.map(function(s){
+		return [
+			`ability-${s.get("name").textContent.trim()}`,
+			Math.round((parseInt(s.element.style
+				.getPropertyValue("--progress") || 0)/360)
+			* 100)
 		];
 	})));
 

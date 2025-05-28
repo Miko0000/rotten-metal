@@ -11,35 +11,25 @@ extc["h1"] = function(...content){
 window.addEventListener("DOMContentLoaded", async function(){
 	//(await fetch("http://localhost:3080/select?lupin"))
 	Object.assign(Command.commands, extc);
-	/*const resp = await fetch(
-		`http://localhost:3080/all?lupin`
-	);
-
-	*/
 	const list = document.querySelector(".page.search .abilities .list");
 	const inst = Klaws.namespace(list.parentElement).get("ability");
-	for(const entry of list.textContent.split('|')){
+	for(const entry of list.textContent.split('|').map(e => e.trim())){
 		inst.compose(
 			"name", entry,
 			"value", "0"
 		);
+		inst.element.classList.add(entry);
 		inst.append();
 		inst.new();
 	}
 
-	//psearch("lupin", await resp.json());
-	psearch("lupin", JSON.parse(`{"bio_psychosis":"37","cyber_psychosis":"60"`
-		+ `,"health":"100","name":"Foster;Mitchel;Lukas;Derek",`
-		+ `"paragraph-1`
-		+ `":"My%20name%20is%20{{level|5|Lupin%20Kalashnikov}}`
-		+ `.%20I%20was%2`
-		+ `0born%20in%20{{level|5|Kiev}},%20{{level|5|July%202`
-		+ `4th,%202042%20}}.`
-		+ `","paragraph-2":"It%20wasn%27t%20the%20best%20time.`
-		+ `%20But%20it%20wasn%`
-		+ `27t%20the%20worst%20neither.%20At%20least%20we%20we`
-		+ `ren%27t%20starving."}`
-	));
+	return;
+	const resp = await fetch(
+		//`http://localhost:3080/all?lupin`
+		"test.json"
+	);
+
+	psearch("lupin", await resp.json());
 });
 
 window.addEventListener("load", function(){
@@ -63,6 +53,26 @@ psearch_custom["bio_psychosis"] = function({ page }, value){
 	const element = page.element.querySelector(".bio_psychosis");
 	const { style } = element;
 	style.setProperty("--progress", `${(value/100)*360}deg`);
+}
+
+psearch_custom["detachment"] = function({ page }, value){
+	const element = page.element.querySelector(".detachment");
+	const { style } = element;
+	style.setProperty("--progress", `${(value/100)*360}deg`);
+}
+
+psearch_custom["ability-"] = function({ page }, value, key){
+	const name = key.split("ability-")
+		.slice(1)
+		.join("ability-")
+	;
+
+	const element = page.element.querySelector(`.abilities .${name}`);
+	const counter = element.querySelector(`.value`);
+	counter.textContent = value;
+	const { style } = element;
+	style.setProperty("--progress", `${(value/100)*360}deg`);
+	evaluate(page.element);
 }
 
 psearch_custom["paragraph"] = function({ page }, value){
@@ -151,8 +161,8 @@ async function psearch(id, data){
 }
 
 qevent("click", ".page.search > .add-attribute", async function(ev, el){
-	const key = prompt("Enter key");
-	const value = prompt("Enter value");
+	const key = prompt("Enter key") || "";
+	const value = prompt("Enter value") || "";
 	const inst = Klaws
 		.namespace(el.parentElement)
 		.get("attribute");
@@ -181,7 +191,12 @@ qevent("click", ".page.search .creation.preview", async function(ev, el){
 });
 
 qevent("click", ".page.search .conic-pbar", async function(ev, el){
-	const progress = parseInt(prompt("Enter a number between 0 to 100"));
+	if(el.matches(".abilities *"))
+		return ;
+
+	const progress = parseInt(prompt("Enter a number between 0 to 100"))
+		|| 0
+	;
 	el.style.setProperty("--progress", `${(progress/100)*360}deg`);
 
 	const value = el.parentElement.querySelector(".value");
@@ -190,7 +205,7 @@ qevent("click", ".page.search .conic-pbar", async function(ev, el){
 });
 
 qevent("click", ".page.search .creation.finish", async function(ev, el){
-	const text = await serializer(el.parentElement);
+	const text = await serializer(el.parentElement.parentElement);
 	try {
 		await navigator.clipboard.writeText(text);
 	} catch(err){
@@ -200,6 +215,12 @@ qevent("click", ".page.search .creation.finish", async function(ev, el){
 	const tab = window.open("about:blank", '_blank');
 	tab.document.write(text);
 	tab.document.close();
+});
+
+qevent("click", ".page.search .creation.change-id", async function(ev, el){
+	const id = el.parentElement.querySelector(".id");
+	const val = prompt();
+	id.textContent = val || id.textContent;
 });
 
 async function pcreation(data){
