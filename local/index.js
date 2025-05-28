@@ -334,5 +334,5 @@ qevent("pointerover", "*", function(ev, el){
 
 	date.classList.add("visible");
 
-	return true;
+	//return true;
 });

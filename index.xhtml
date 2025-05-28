@@ -4,10 +4,13 @@
 		<title>DevMkay</title>
 
 		<script src="lib/serializer.js"></script>
+		<script src="lib/psearch.js"></script>
+		<script src="lib/psearch/abilities.js"></script>
 	</head>
 	<body nav="none">
 		<div class="page search template preview">
 			<div class="id"></div>
+			<button class="creation change-id icon edit">change id</button>
 			<div class="status">
 				<div class="cyber_psychosis conic-pbar">
 					<div class="inner"></div>
@@ -20,6 +23,11 @@
 				<div class="detachment conic-pbar">
 					<div class="inner"></div>
 				</div>
+			</div>
+			<div class="creation ability-eval">
+				<span class="total">0</span>
+				<span class="total-average">0</span>
+				<span class="each-average">0</span>
 			</div>
 			<div class="abilities">
 				<div class="template list">
@@ -38,6 +46,9 @@
 					</div>
 					<div class="name"></div>
 					<div class="value"></div>
+					<div class="right">
+						<button class="creation icon reset">reset</button>
+					</div>
 				</div>
 			</div>
 			<div class="attributes">
